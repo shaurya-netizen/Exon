@@ -11,9 +11,6 @@ Exon is an AI-powered platform that acts as a content co-pilot. It takes a user'
 ### **Live Frontend Website**
 
 The user interface was built with Builder.io and is hosted live.
-
-**You can access the working application here:** [**PASTE YOUR LIVE BUILDER.IO URL HERE**]
-
 ---
 
 ### **Technical Approach**
@@ -22,3 +19,5 @@ The user interface was built with Builder.io and is hosted live.
 * **Backend:** A Node.js serverless function hosted on Vercel.
 * **AI/NLP:** Google's Gemini API for analysis, simulation, and strategy synthesis.
 * **Data Sources:** Official APIs for YouTube and Reddit.
+
+##The Project is not working right now because the API requests are not being executed and the cloud billing of google is not responding due to which APIs are not responding##
