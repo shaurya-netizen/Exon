@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exon - AI Content Strategy Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(155, 89, 182, 0.2);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #9B59B6, #FF4081);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            background: rgba(155, 89, 182, 0.1);
+            color: #9B59B6;
+        }
+
+        nav a.active {
+            background: linear-gradient(135deg, #9B59B6, #FF4081);
+            color: #fff;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #9B59B6, #FF4081);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: #aaa;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Form Card */
+        .strategy-card {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(155, 89, 182, 0.2);
+            border-radius: 16px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        label i {
+            color: #9B59B6;
+            font-size: 1.1rem;
+        }
+
+        input, select, textarea {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(155, 89, 182, 0.3);
+            border-radius: 12px;
+            padding: 1rem;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #9B59B6;
+            box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.1);
+            transform: translateY(-1px);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #666;
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        select option {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Generate Button */
+        .generate-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #9B59B6, #FF4081);
+            border: none;
+            border-radius: 12px;
+            padding: 1.2rem 2rem;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(155, 89, 182, 0.3);
+        }
+
+        .generate-btn:active {
+            transform: translateY(0);
+        }
+
+        .generate-btn i {
+            margin-right: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .strategy-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .strategy-card {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Subtle glow effect */
+        .strategy-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.1), rgba(255, 64, 129, 0.1));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .strategy-card:hover::before {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo.j" alt="Exon Logo" id="logo-img">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+                        <li><a href="#"><i class="fas fa-trending-up"></i> Trends</a></li>
+                        <li><a href="#" class="active"><i class="fas fa-lightbulb"></i> Strategy Planner</a></li>
+                        <li><a href="#"><i class="fas fa-calendar"></i> Calendar</a></li>
+                        <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>AI Strategy Planner</h1>
+                <p>Generate intelligent content strategies tailored to your brand and audience using advanced AI algorithms</p>
+            </div>
+
+            <div class="strategy-card">
+                <form id="strategyForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="platforms">
+                                <i class="fab fa-instagram"></i>
+                                Platforms
+                            </label>
+                            <select id="platforms" name="platforms" required>
+                                <option value="">Select platforms...</option>
+                                <option value="instagram">Instagram</option>
+                                <option value="tiktok">TikTok</option>
+                                <option value="youtube">YouTube</option>
+                                <option value="twitter">Twitter/X</option>
+                                <option value="linkedin">LinkedIn</option>
+                                <option value="facebook">Facebook</option>
+                                <option value="multiple">Multiple Platforms</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="frequency">
+                                <i class="fas fa-clock"></i>
+                                Post Frequency (per week)
+                            </label>
+                            <input type="number" id="frequency" name="frequency" placeholder="e.g., 5" min="1" max="50" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="contentIdea">
+                                <i class="fas fa-lightbulb"></i>
+                                Content Idea
+                            </label>
+                            <input type="text" id="contentIdea" name="contentIdea" placeholder="e.g., Fitness tips for busy professionals" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="targetAudience">
+                                <i class="fas fa-users"></i>
+                                Target Audience
+                            </label>
+                            <input type="text" id="targetAudience" name="targetAudience" placeholder="e.g., Working professionals aged 25-40 interested in health" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="objective">
+                                <i class="fas fa-target"></i>
+                                Goal/Objective
+                            </label>
+                            <textarea id="objective" name="objective" placeholder="e.g., Increase brand awareness and drive traffic to fitness app downloads" required></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="generate-btn">
+                        <a href="strat.html" class="generate-btn">
+                        <i class="fas fa-magic"></i>
+                            Generate Strategy
+                            </a>
+
+                        </form>
+                    </button>
+                <form
+            </form>
+            </div>  
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('strategyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = document.querySelector('.generate-btn');
+            const originalText = btn.innerHTML;
+            
+            // Loading state
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+            btn.disabled = true;
+            
+            // Simulate AI processing
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Strategy Generated!';
+                btn.style.background = 'linear-gradient(135deg, #27AE60, #2ECC71)';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    btn.style.background = 'linear-gradient(135deg, #9B59B6, #FF4081)';
+                    alert('🎉 Your AI-powered content strategy has been generated! Check your dashboard to view the complete strategy plan.');
+                }, 2000);
+            }, 3000);
+        });
+
+        // Add subtle hover effects to form fields
+        const formFields = document.querySelectorAll('input, select, textarea');
+        formFields.forEach(field => {
+            field.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateY(-2px)';
+            });
+            
+            field.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

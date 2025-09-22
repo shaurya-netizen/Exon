@@ -1,0 +1,31 @@
+/* CSS for logo container and logo as a background image */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align logo to the left; use 'center' or 'flex-end' for other positions */
+    padding: 20px;
+    background-color: #ffffff; /* Background color for the header */
+    box-shadow: 0 2px 4px rgb(255, 255, 255); /* Optional shadow for depth */
+}
+
+.logo {
+    background-image: url('logo.jpeg'); /* Replace with your logo image path */
+    background-size: contain; /* Ensures logo fits within the container */
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 150px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.logo:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    .logo {
+        width: 100px; /* Smaller logo for mobile */
+        height: 35px;
+    }
+}

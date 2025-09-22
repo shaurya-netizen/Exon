@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exon - Content Strategy</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(155, 89, 182, 0.3);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #9B59B6, #FF4081);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #cccccc;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #FF4081;
+            background: rgba(255, 64, 129, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(45deg, #9B59B6, #8E44AD);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(155, 89, 182, 0.4);
+            background: linear-gradient(45deg, #8E44AD, #9B59B6);
+        }
+
+        /* Strategy Overview */
+        .strategy-overview {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(155, 89, 182, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .overview-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #9B59B6, #FF4081);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .input-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #9B59B6;
+            transition: all 0.3s ease;
+        }
+
+        .input-item:hover {
+            transform: translateY(-2px);
+            border-left-color: #FF4081;
+            box-shadow: 0 5px 15px rgba(155, 89, 182, 0.2);
+        }
+
+        .input-label {
+            font-size: 0.9rem;
+            color: #9B59B6;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .input-value {
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+
+        /* Calendar Section */
+        .calendar-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 64, 129, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+        }
+
+        .calendar-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #FF4081, #9B59B6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .calendar-card {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid rgba(155, 89, 182, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calendar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(45deg, #9B59B6, #FF4081);
+        }
+
+        .calendar-card:hover {
+            transform: translateY(-5px);
+            border-color: #FF4081;
+            box-shadow: 0 10px 25px rgba(255, 64, 129, 0.2);
+        }
+
+        .card-date {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #FF4081;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-content {
+            font-size: 0.95rem;
+            color: #cccccc;
+            margin-bottom: 1rem;
+        }
+
+        .card-platform {
+            display: inline-block;
+            background: rgba(155, 89, 182, 0.2);
+            color: #9B59B6;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .input-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calendar-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .strategy-overview,
+        .calendar-section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .calendar-card {
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .calendar-card:nth-child(1) { animation-delay: 0.1s; }
+        .calendar-card:nth-child(2) { animation-delay: 0.2s; }
+        .calendar-card:nth-child(3) { animation-delay: 0.3s; }
+        .calendar-card:nth-child(4) { animation-delay: 0.4s; }
+        .calendar-card:nth-child(5) { animation-delay: 0.5s; }
+        .calendar-card:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #9B59B6, #FF4081);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #FF4081, #9B59B6);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i> Exon
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#" class="nav-link"><i class="fas fa-trending-up"></i> Trends</a></li>
+                <li><a href="#" class="nav-link"><i class="fas fa-clipboard-list"></i> Strategy Planner</a></li>
+                <li><a href="#" class="nav-link"><i class="fas fa-calendar-alt"></i> Calendar</a></li>
+                <li><a href="#" class="nav-link"><i class="fas fa-user-circle"></i> Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Back Button -->
+        <a href="#" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Strategy Planner
+        </a>
+
+        <!-- Strategy Overview -->
+        <section class="strategy-overview">
+            <h1 class="overview-title">
+                <i class="fas fa-rocket"></i>
+                Your Content Strategy Overview
+            </h1>
+            
+            <div class="input-grid">
+                <div class="input-item">
+                    <div class="input-label">
+                        <i class="fab fa-facebook"></i>
+                        Platforms
+                    </div>
+                    <div class="input-value">Instagram, TikTok, YouTube</div>
+                </div>
+                
+                <div class="input-item">
+                    <div class="input-label">
+                        <i class="fas fa-lightbulb"></i>
+                        Content Idea
+                    </div>
+                    <div class="input-value">Fitness & Wellness Tips</div>
+                </div>
+                
+                <div class="input-item">
+                    <div class="input-label">
+                        <i class="fas fa-users"></i>
+                        Target Audience
+                    </div>
+                    <div class="input-value">Health-conscious millennials (25-35)</div>
+                </div>
+                
+                <div class="input-item">
+                    <div class="input-label">
+                        <i class="fas fa-clock"></i>
+                        Post Frequency
+                    </div>
+                    <div class="input-value">Daily</div>
+                </div>
+                
+                <div class="input-item">
+                    <div class="input-label">
+                        <i class="fas fa-bullseye"></i>
+                        Goal/Objective
+                    </div>
+                    <div class="input-value">Increase engagement by 50%</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 30-Day Calendar -->
+        <section class="calendar-section">
+            <h2 class="calendar-title">
+                <i class="fas fa-calendar-check"></i>
+                30-Day Content Calendar
+            </h2>
+            
+            <div class="calendar-grid">
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 1 - Sep 23
+                    </div>
+                    <div class="card-content">
+                        "Morning Motivation Monday" - Share 5-minute wake-up stretches with energizing music
+                    </div>
+                    <span class="card-platform">Instagram</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 2 - Sep 24
+                    </div>
+                    <div class="card-content">
+                        "Transformation Tuesday" - Before/after workout results from community members
+                    </div>
+                    <span class="card-platform">TikTok</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 3 - Sep 25
+                    </div>
+                    <div class="card-content">
+                        "Wellness Wednesday" - 10-minute guided meditation for stress relief
+                    </div>
+                    <span class="card-platform">YouTube</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 4 - Sep 26
+                    </div>
+                    <div class="card-content">
+                        "Throwback Thursday" - Share your fitness journey milestones and lessons learned
+                    </div>
+                    <span class="card-platform">Instagram</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 5 - Sep 27
+                    </div>
+                    <div class="card-content">
+                        "Fuel Friday" - Quick healthy recipe for post-workout recovery smoothie
+                    </div>
+                    <span class="card-platform">TikTok</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 6 - Sep 28
+                    </div>
+                    <div class="card-content">
+                        "Saturday Sweat" - 15-minute HIIT workout you can do anywhere
+                    </div>
+                    <span class="card-platform">YouTube</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 7 - Sep 29
+                    </div>
+                    <div class="card-content">
+                        "Self-care Sunday" - Relaxing yoga flow for recovery and mindfulness
+                    </div>
+                    <span class="card-platform">Instagram</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 8 - Sep 30
+                    </div>
+                    <div class="card-content">
+                        "Myth Monday" - Debunk common fitness myths with science-backed facts
+                    </div>
+                    <span class="card-platform">TikTok</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 9 - Oct 1
+                    </div>
+                    <div class="card-content">
+                        "Technique Tuesday" - Proper form demonstration for popular exercises
+                    </div>
+                    <span class="card-platform">YouTube</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 10 - Oct 2
+                    </div>
+                    <div class="card-content">
+                        "Workout Wednesday" - Follow-along strength training for beginners
+                    </div>
+                    <span class="card-platform">Instagram</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 11 - Oct 3
+                    </div>
+                    <div class="card-content">
+                        "Thankful Thursday" - Gratitude practice combined with gentle movement
+                    </div>
+                    <span class="card-platform">TikTok</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 12 - Oct 4
+                    </div>
+                    <div class="card-content">
+                        "Feature Friday" - Interview with a nutrition expert about balanced eating
+                    </div>
+                    <span class="card-platform">YouTube</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 13 - Oct 5
+                    </div>
+                    <div class="card-content">
+                        "Saturday Challenge" - 30-day plank challenge kickoff with progress tracking
+                    </div>
+                    <span class="card-platform">Instagram</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 14 - Oct 6
+                    </div>
+                    <div class="card-content">
+                        "Sunday Prep" - Meal prep ideas for a healthy and productive week ahead
+                    </div>
+                    <span class="card-platform">TikTok</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 15 - Oct 7
+                    </div>
+                    <div class="card-content">
+                        "Mindful Monday" - Breathing exercises to start your week with intention
+                    </div>
+                    <span class="card-platform">YouTube</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 16 - Oct 8
+                    </div>
+                    <div class="card-content">
+                        "Tips Tuesday" - Hydration hacks and why water intake matters for performance
+                    </div>
+                    <span class="card-platform">Instagram</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 17 - Oct 9
+                    </div>
+                    <div class="card-content">
+                        "Walk & Talk Wednesday" - Benefits of walking meetings and outdoor exercise
+                    </div>
+                    <span class="card-platform">TikTok</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 18 - Oct 10
+                    </div>
+                    <div class="card-content">
+                        "Throwback Thursday" - Evolution of fitness trends and what actually works
+                    </div>
+                    <span class="card-platform">YouTube</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 19 - Oct 11
+                    </div>
+                    <div class="card-content">
+                        "Flexibility Friday" - Importance of stretching and mobility work demonstration
+                    </div>
+                    <span class="card-platform">Instagram</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 20 - Oct 12
+                    </div>
+                    <div class="card-content">
+                        "Saturday Stories" - Community spotlight featuring member transformation stories
+                    </div>
+                    <span class="card-platform">TikTok</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 21 - Oct 13
+                    </div>
+                    <div class="card-content">
+                        "Sunday Science" - Research-backed benefits of regular exercise on mental health
+                    </div>
+                    <span class="card-platform">YouTube</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 22 - Oct 14
+                    </div>
+                    <div class="card-content">
+                        "Motivation Monday" - Overcoming workout plateaus and staying consistent
+                    </div>
+                    <span class="card-platform">Instagram</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 23 - Oct 15
+                    </div>
+                    <div class="card-content">
+                        "Transformation Tuesday" - Progress check-in for the 30-day plank challenge
+                    </div>
+                    <span class="card-platform">TikTok</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 24 - Oct 16
+                    </div>
+                    <div class="card-content">
+                        "Workout Wednesday" - Core strengthening routine for better posture
+                    </div>
+                    <span class="card-platform">YouTube</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 25 - Oct 17
+                    </div>
+                    <div class="card-content">
+                        "Thoughtful Thursday" - Building a sustainable fitness routine that fits your lifestyle
+                    </div>
+                    <span class="card-platform">Instagram</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 26 - Oct 18
+                    </div>
+                    <div class="card-content">
+                        "Fun Friday" - Dance workout routine to your favorite upbeat songs
+                    </div>
+                    <span class="card-platform">TikTok</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 27 - Oct 19
+                    </div>
+                    <div class="card-content">
+                        "Saturday Strength" - Bodyweight exercises for building functional strength
+                    </div>
+                    <span class="card-platform">YouTube</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 28 - Oct 20
+                    </div>
+                    <div class="card-content">
+                        "Self-reflection Sunday" - Journaling prompts for tracking your wellness journey
+                    </div>
+                    <span class="card-platform">Instagram</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 29 - Oct 21
+                    </div>
+                    <div class="card-content">
+                        "Mindset Monday" - Positive affirmations and visualization techniques for success
+                    </div>
+                    <span class="card-platform">TikTok</span>
+                </div>
+                
+                <div class="calendar-card">
+                    <div class="card-date">
+                        <i class="fas fa-calendar-day"></i>
+                        Day 30 - Oct 22
+                    </div>
+                    <div class="card-content">
+                        "Celebration Tuesday" - 30-day challenge completion celebration and what's next
+                    </div>
+                    <span class="card-platform">YouTube</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Add some interactivity
+        document.querySelectorAll('.calendar-card').forEach((card, index) => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Back button functionality
+        document.querySelector('.back-button').addEventListener('click', (e) => {
+            e.preventDefault();
+            // Add your navigation logic here
+            alert('Navigating back to Strategy Planner...');
+        });
+    </script>
+</body>
+</html>
