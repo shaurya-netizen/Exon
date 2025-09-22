@@ -1,0 +1,24 @@
+# Exon - AI Content Strategy Engine
+
+This repository contains the backend code for the Exon project, a hackathon entry.
+
+## Project Description
+
+Exon is an AI-powered platform that acts as a content co-pilot. It takes a user's goal and target audience, analyzes real-time data from YouTube and Reddit, and generates a complete, professional 30-day content strategy.
+
+---
+
+### **Live Frontend Website**
+
+The user interface was built with Builder.io and is hosted live.
+
+**You can access the working application here:** [**PASTE YOUR LIVE BUILDER.IO URL HERE**]
+
+---
+
+### **Technical Approach**
+
+* **Frontend:** Built and hosted on Builder.io (React-based).
+* **Backend:** A Node.js serverless function hosted on Vercel.
+* **AI/NLP:** Google's Gemini API for analysis, simulation, and strategy synthesis.
+* **Data Sources:** Official APIs for YouTube and Reddit.
