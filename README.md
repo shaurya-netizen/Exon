@@ -20,4 +20,4 @@ The user interface was built with Builder.io and is hosted live.
 * **AI/NLP:** Google's Gemini API for analysis, simulation, and strategy synthesis.
 * **Data Sources:** Official APIs for YouTube and Reddit.
 
-##The Project is not working right now because the API requests are not being executed and the cloud billing of google is not responding due to which APIs are not responding##
+##The Project is not working right now because the API requests are not being executed and the cloud billing of google is not responding due to which APIs are not responding.We have added a static prototype website which shows our vision going forward and with API implementation we will further improve our site##
